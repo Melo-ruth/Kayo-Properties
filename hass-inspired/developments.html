@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kayo Properties - Developments</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="container nav">
+    <a class="brand" href="index.html">KAYO<span>PROPERTIES</span></a>
+    <nav class="nav-links">
+      <a href="ecosystem.html">Ecosystem</a>
+      <a href="developments.html">Developments</a>
+      <a href="about.html">About</a>
+      <a href="list-property.html">Investments</a>
+      <a href="contacts.html">Contact</a>
+    </nav>
+    <button class="hamb" id="hambBtn">&#9776;</button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="ecosystem.html">Ecosystem</a>
+    <a href="developments.html">Developments</a>
+    <a href="about.html">About</a>
+    <a href="list-property.html">Investments</a>
+    <a href="contacts.html">Contact</a>
+  </div>
+</header>
+
+<div class="lc-page">
+
+  <div class="lc-filter-bar">
+
+    <!-- Status buttons -->
+    <div class="lc-filter-group status-group">
+      <button class="lc-filter-btn active" data-filter="all">All</button>
+      <button class="lc-filter-btn" data-filter="launched">Recently Launched</button>
+      <button class="lc-filter-btn" data-filter="construction">Under Construction</button>
+      <button class="lc-filter-btn" data-filter="completed">Completed</button>
+    </div>
+
+    <!-- Price + Location dropdowns -->
+    <div class="lc-filter-group dropdown-group">
+
+      <div class="lc-filter-dropdown">
+        <button class="lc-filter-btn lc-dropdown-toggle" data-dropdown="price">Price Range</button>
+        <div class="lc-dropdown-menu" id="dropdown-price">
+          <label class="lc-dropdown-item"><input type="radio" name="price" value="all" checked> All Prices</label>
+          <label class="lc-dropdown-item"><input type="radio" name="price" value="0-500"> Under UGX 500M</label>
+          <label class="lc-dropdown-item"><input type="radio" name="price" value="500-800"> UGX 500M – 800M</label>
+          <label class="lc-dropdown-item"><input type="radio" name="price" value="800-1200"> UGX 800M – 1.2B</label>
+          <label class="lc-dropdown-item"><input type="radio" name="price" value="1200+"> Above UGX 1.2B</label>
+        </div>
+      </div>
+
+      <div class="lc-filter-dropdown">
+        <button class="lc-filter-btn lc-dropdown-toggle" data-dropdown="location">Location</button>
+        <div class="lc-dropdown-menu" id="dropdown-location">
+          <label class="lc-dropdown-item"><input type="radio" name="location" value="all" checked> All Locations</label>
+          <label class="lc-dropdown-item"><input type="radio" name="location" value="nakasero"> Nakasero</label>
+          <label class="lc-dropdown-item"><input type="radio" name="location" value="kololo"> Kololo</label>
+          <label class="lc-dropdown-item"><input type="radio" name="location" value="muyenga"> Muyenga</label>
+          <label class="lc-dropdown-item"><input type="radio" name="location" value="bugolobi"> Bugolobi</label>
+          <label class="lc-dropdown-item"><input type="radio" name="location" value="kiambu"> Kiambu Road</label>
+          <label class="lc-dropdown-item"><input type="radio" name="location" value="entebbe"> Entebbe Road</label>
+          <label class="lc-dropdown-item"><input type="radio" name="location" value="ntinda"> Ntinda</label>
+          <label class="lc-dropdown-item"><input type="radio" name="location" value="naguru"> Naguru</label>
+          <label class="lc-dropdown-item"><input type="radio" name="location" value="kira"> Kira</label>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="lc-active-filters" id="active-filters"></div>
+  </div>
+
+  <div class="lc-no-results" id="no-results">No properties match your filters.</div>
+
+  <!-- ══ RECENTLY LAUNCHED ══ -->
+  <div class="lc-group" data-group="launched">
+    <h2 class="lc-group-heading">Recently Launched</h2>
+    <div class="lc-grid">
+
+      <div class="lc-card" data-status="launched" data-price="350" data-location="kiambu">
+        <div class="lc-card__img">
+          <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80" alt="Kwetu Residence">
+          <span class="lc-card__status">New Launch</span>
+        </div>
+        <div class="lc-card__body">
+          <div class="lc-card__name">Kwetu Residence</div>
+          <div class="lc-card__location">Kiambu Road &nbsp;|&nbsp; Countryside Calm</div>
+          <div class="lc-card__stats">
+            <div class="lc-stat">
+              <span class="lc-stat__label">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
+                  <polyline points="9 22 9 12 15 12 15 22"/>
+                </svg> Beds</span>
+              <span class="lc-stat__value">4</span>
+            </div>
+            <div class="lc-stat">
+              <span class="lc-stat__label">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <line x1="12" y1="1" x2="12" y2="23"/>
+                  <path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/>
+                </svg> Price</span>
+              <span class="lc-stat__value">From UGX 350M</span>
+            </div>
+          </div>
+          
+          <div class="lc-card__actions">
+            <a href="#" class="lc-btn lc-btn--outline">Enquire</a>
+            <a href="details.html" class="lc-btn lc-btn--dark">Details</a></div>
+        </div>
+      </div>
+
+      <div class="lc-card" data-status="launched" data-price="1200" data-location="kololo">
+        <div class="lc-card__img">
+          <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=800&q=80" alt="Kayo Manor">
+          <span class="lc-card__status">New Launch</span>
+        </div>
+        <div class="lc-card__body">
+          <div class="lc-card__name">Kayo Manor</div>
+          <div class="lc-card__location">Kololo &nbsp;|&nbsp; Presidential Homes</div>
+          <div class="lc-card__stats">
+            <div class="lc-stat">
+              <span class="lc-stat__label">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
+                  <polyline points="9 22 9 12 15 12 15 22"/></svg> Beds</span>
+              <span class="lc-stat__value">6</span>
+            </div>
+            <div class="lc-stat">
+              <span class="lc-stat__label">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <line x1="12" y1="1" x2="12" y2="23"/>
+                  <path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/>
+                </svg> Price</span>
+              <span class="lc-stat__value">From UGX 1.2B</span>
+            </div>
+          </div>
+          
+          <div class="lc-card__actions">
+            <a href="#" class="lc-btn lc-btn--outline">Enquire</a>
+            <a href="details.html" class="lc-btn lc-btn--dark">Details</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ══ UNDER CONSTRUCTION ══ -->
+  <div class="lc-group" data-group="construction">
+    <h2 class="lc-group-heading">Under Construction</h2>
+    <div class="lc-grid">
+
+      <div class="lc-card" data-status="construction" data-price="800" data-location="nakasero">
+        <div class="lc-card__img">
+          <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=800&q=80" alt="Kayo Heights">
+          <span class="lc-card__status">Under Construction</span>
+        </div>
+        <div class="lc-card__body">
+          <div class="lc-card__name">Kayo Heights</div>
+          <div class="lc-card__location">Nakasero &nbsp;|&nbsp; Experience Nature at Every Level</div>
+          <div class="lc-card__stats">
+            <div class="lc-stat">
+              <span class="lc-stat__label">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
+                  <polyline points="9 22 9 12 15 12 15 22"/>
+                </svg> Beds</span>
+              <span class="lc-stat__value">5</span>
+            </div>
+            <div class="lc-stat">
+              <span class="lc-stat__label">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <line x1="12" y1="1" x2="12" y2="23"/>
+                  <path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/>
+                </svg> Price</span>
+              <span class="lc-stat__value">From UGX 800M</span>
+            </div>
+          </div>
+          
+          <div class="lc-card__actions">
+            <a href="#" class="lc-btn lc-btn--outline">Enquire</a>
+            <a href="details.html" class="lc-btn lc-btn--dark">Details</a></div>
+        </div>
+      </div>
+
+      <div class="lc-card" data-status="construction" data-price="450" data-location="bugolobi">
+        <div class="lc-card__img">
+          <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=800&q=80" alt="Kayo Lumiere">
+          <span class="lc-card__status">Under Construction</span>
+        </div>
+        <div class="lc-card__body">
+          <div class="lc-card__name">Kayo Lumière</div>
+          <div class="lc-card__location">Bugolobi &nbsp;|&nbsp; Live the High Life</div>
+          <div class="lc-card__stats">
+            <div class="lc-stat">
+              <span class="lc-stat__label">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
+                <polyline points="9 22 9 12 15 12 15 22"/>
+              </svg> Beds</span>
+              <span class="lc-stat__value">1, 2 &amp; 3</span>
+            </div>
+            <div class="lc-stat">
+              <span class="lc-stat__label">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <line x1="12" y1="1" x2="12" y2="23"/>
+                <path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/>
+              </svg> Price</span>
+              <span class="lc-stat__value">From USD 120,000</span>
+            </div>
+          </div>
+          
+          <div class="lc-card__actions">
+            <a href="#" class="lc-btn lc-btn--outline">Enquire</a>
+            <a href="details.html" class="lc-btn lc-btn--dark">Details</a></div>
+        </div>
+      </div>
+
+      <div class="lc-card" data-status="construction" data-price="0" data-location="muyenga">
+        <div class="lc-card__img">
+          <img src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?auto=format&fit=crop&w=800&q=80" alt="Kayo Oaks">
+          <span class="lc-card__status sold">Sold Out</span>
+        </div>
+        <div class="lc-card__body">
+          <div class="lc-card__name">Kayo Oaks</div>
+          <div class="lc-card__location">Muyenga &nbsp;|&nbsp; Experience Nature at Every Level</div>
+          <div class="lc-card__stats">
+            <div class="lc-stat">
+              <span class="lc-stat__label">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
+                  <polyline points="9 22 9 12 15 12 15 22"/></svg> Beds</span>
+              <span class="lc-stat__value">4</span>
+            </div>
+            <div class="lc-stat">
+              <span class="lc-stat__label">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <line x1="12" y1="1" x2="12" y2="23"/>
+                  <path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/>
+                </svg> Price</span>
+              <span class="lc-stat__value sold-out">Sold Out</span>
+            </div>
+          </div>
+          
+          <div class="lc-card__actions">
+            <a href="#" class="lc-btn lc-btn--outline">Enquire</a>
+            <a href="details.html" class="lc-btn lc-btn--dark">Details</a></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ══ COMPLETED ══ -->
+  <div class="lc-group" data-group="completed">
+    <h2 class="lc-group-heading">Completed Projects</h2>
+    <div class="lc-grid">
+
+      <div class="lc-card" data-status="completed" data-price="0" data-location="entebbe">
+        <div class="lc-card__img">
+          <img src="https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?auto=format&fit=crop&w=800&q=80" alt="Kayo Antara">
+          <span class="lc-card__status sold">Sold Out</span>
+        </div>
+        <div class="lc-card__body">
+          <div class="lc-card__name">Kayo Antara</div>
+          <div class="lc-card__location">Entebbe Road &nbsp;|&nbsp; Forest Edge Villas</div>
+          <div class="lc-card__stats">
+            <div class="lc-stat">
+              <span class="lc-stat__label">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
+                  <polyline points="9 22 9 12 15 12 15 22"/>
+                </svg> Beds</span>
+              <span class="lc-stat__value">4</span>
+            </div>
+            <div class="lc-stat">
+              <span class="lc-stat__label">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <line x1="12" y1="1" x2="12" y2="23"/>
+                  <path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/>
+                </svg> Price</span>
+              <span class="lc-stat__value sold-out">Sold Out</span>
+            </div>
+          </div>
+       
+            
+          <div class="lc-card__actions">
+            <a href="#" class="lc-btn lc-btn--outline">Enquire</a>
+            <a href="details.html" class="lc-btn lc-btn--dark">Details</a></div>
+        </div>
+      </div>
+
+
+      <!--kayo reflection-->
+      <div class="lc-card" data-status="completed" data-price="0" data-location="ntinda">
+        <div class="lc-card__img">
+          <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80" alt="Kayo Reflections">
+          <span class="lc-card__status sold">Sold Out</span>
+        </div>
+        <div class="lc-card__body">
+          <div class="lc-card__name">Kayo Reflections</div>
+          <div class="lc-card__location">Ntinda &nbsp;|&nbsp; Bespoke Luxury Living</div>
+          <div class="lc-card__stats">
+            <div class="lc-stat">
+              <span class="lc-stat__label">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
+                  <polyline points="9 22 9 12 15 12 15 22"/></svg> Beds</span>
+              <span class="lc-stat__value">5</span>
+            </div>
+            <div class="lc-stat">
+              <span class="lc-stat__label">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <line x1="12" y1="1" x2="12" y2="23"/><path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg> Price</span>
+              <span class="lc-stat__value sold-out">Sold Out</span>
+            </div>
+          </div>
+          
+          <div class="lc-card__actions"><a href="#" class="lc-btn lc-btn--outline">Enquire</a>
+            <a href="details.html" class="lc-btn lc-btn--dark">Details</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="lc-card" data-status="completed" data-price="0" data-location="naguru">
+        <div class="lc-card__img">
+          <img src="https://images.unsplash.com/photo-1600573472592-401b489a3cdc?auto=format&fit=crop&w=800&q=80" alt="Kayo Moments">
+          <span class="lc-card__status sold">Sold Out</span>
+        </div>
+        <div class="lc-card__body">
+          <div class="lc-card__name">Kayo Moments</div>
+          <div class="lc-card__location">Naguru &nbsp;|&nbsp; Architectural Marvel</div>
+          <div class="lc-card__stats">
+            <div class="lc-stat">
+              <span class="lc-stat__label">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg> Beds</span>
+              <span class="lc-stat__value">5</span>
+            </div>
+            <div class="lc-stat">
+              <span class="lc-stat__label">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <line x1="12" y1="1" x2="12" y2="23"/>
+                  <path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/>
+                </svg> Price</span>
+              <span class="lc-stat__value sold-out">Sold Out</span>
+            </div>
+          </div>
+         
+          <div class="lc-card__actions">
+            <a href="#" class="lc-btn lc-btn--outline">Enquire</a>
+            <a href="details.html" class="lc-btn lc-btn--dark">Details</a></div>
+        </div>
+      </div>
+
+      <div class="lc-card" data-status="completed" data-price="0" data-location="kira">
+        <div class="lc-card__img">
+          <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=800&q=80" alt="Kayo Ineza">
+          <span class="lc-card__status sold">Sold Out</span>
+        </div>
+        <div class="lc-card__body">
+          <div class="lc-card__name">Kayo Ineza</div>
+          <div class="lc-card__location">Kira &nbsp;|&nbsp; Boutique Homes</div>
+          <div class="lc-card__stats">
+            <div class="lc-stat">
+              <span class="lc-stat__label">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                  <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/>
+                  <polyline points="9 22 9 12 15 12 15 22"/></svg> Beds</span>
+              <span class="lc-stat__value">3 &amp; 4</span>
+            </div>
+            <div class="lc-stat">
+              <span class="lc-stat__label"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                <line x1="12" y1="1" x2="12" y2="23"/>
+                <path d="M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/>
+              </svg> Price</span>
+              <span class="lc-stat__value sold-out">Sold Out</span>
+            </div>
+          </div>
+          
+          <div class="lc-card__actions"><a href="#" class="lc-btn lc-btn--outline">Enquire</a><a href="#" class="lc-btn lc-btn--dark">Details</a></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+<footer class="footer">
+
+  <!-- Centered logo mark -->
+  <div class="footer-logo-wrap">
+    <div class="footer-logo">KAYO</div>
+    <div class="footer-logo-sub">PROPERTIES</div>
+  </div>
+
+  <!-- Horizontal nav -->
+  <nav class="footer-nav">
+    <a href="#">Home</a>
+    <a href="#">Ecosystem</a>
+    <a href="#">Developments</a>
+    <a href="#">About</a>
+    <a href="#">List Property</a>
+    <a href="#">Contact</a>
+  </nav>
+
+  <!-- Bottom bar -->
+  <div class="footer-bottom">
+    <p>© 2026 Kayo Properties Ltd · SMS House, 7th Street, Industrial Area, Kampala · <a href="mailto:hello@kayoproperties.com">hello@kayoproperties.com</a></p>
+  </div>
+
+</footer>
+
+<script>
+(function () {
+  var state = { status: 'all', price: 'all', location: 'all' };
+
+  var allCards     = Array.from(document.querySelectorAll('.lc-card'));
+  var allGroups    = Array.from(document.querySelectorAll('.lc-group'));
+  var statusBtns   = Array.from(document.querySelectorAll('.lc-filter-btn[data-filter]'));
+  var activeTagsEl = document.getElementById('active-filters');
+  var noResults    = document.getElementById('no-results');
+
+  var TAG_LABELS = {
+    status:   { launched: 'Recently Launched', construction: 'Under Construction', completed: 'Completed' },
+    price:    { '0-500': 'Under UGX 500M', '500-800': 'UGX 500M–800M', '800-1200': 'UGX 800M–1.2B', '1200+': 'Above UGX 1.2B' },
+    location: { nakasero:'Nakasero', kololo:'Kololo', muyenga:'Muyenga', bugolobi:'Bugolobi', kiambu:'Kiambu Road', entebbe:'Entebbe Road', ntinda:'Ntinda', naguru:'Naguru', kira:'Kira' }
+  };
+
+  /* ── Matchers ── */
+  function statusMatches(card) {
+    if (state.status === 'all') return true;
+    return card.getAttribute('data-status') === state.status;
+  }
+
+  function priceMatches(card) {
+    if (state.price === 'all') return true;
+    var raw = card.getAttribute('data-price');
+    if (!raw) return false;
+    var val = parseFloat(raw);
+    if (isNaN(val)) return false;
+    if (val === 0) return true; // sold-out always pass
+    if (state.price === '1200+') return val >= 1200;
+    var parts = state.price.split('-');
+    return val >= parseFloat(parts[0]) && val < parseFloat(parts[1]);
+  }
+
+  function locationMatches(card) {
+    if (state.location === 'all') return true;
+    return card.getAttribute('data-location') === state.location;
+  }
+
+  /* ── Apply ── */
+  function applyFilters() {
+    var anyVisible = false;
+
+    allCards.forEach(function(card) {
+      var show = statusMatches(card) && priceMatches(card) && locationMatches(card);
+      card.style.display = show ? '' : 'none';
+      if (show) anyVisible = true;
+    });
+
+    allGroups.forEach(function(group) {
+      var cards = Array.from(group.querySelectorAll('.lc-card'));
+      var hasVisible = cards.some(function(c) { return c.style.display !== 'none'; });
+      group.style.display = hasVisible ? '' : 'none';
+    });
+
+    if (noResults) noResults.style.display = anyVisible ? 'none' : 'block';
+    renderTags();
+  }
+
+  /* ── Tags ── */
+  function renderTags() {
+    if (!activeTagsEl) return;
+    activeTagsEl.innerHTML = '';
+    ['status', 'price', 'location'].forEach(function(key) {
+      if (state[key] === 'all') return;
+      var label = (TAG_LABELS[key] && TAG_LABELS[key][state[key]]) || state[key];
+      var tag = document.createElement('span');
+      tag.className = 'lc-filter-tag';
+      tag.innerHTML = label + ' <button type="button" data-key="' + key + '">&times;</button>';
+      tag.querySelector('button').addEventListener('click', function() {
+        resetFilter(key);
+      });
+      activeTagsEl.appendChild(tag);
+    });
+  }
+
+  function resetFilter(key) {
+    state[key] = 'all';
+    if (key === 'status') {
+      statusBtns.forEach(function(b) {
+        b.classList.toggle('active', b.getAttribute('data-filter') === 'all');
+      });
+    } else {
+      var radio = document.querySelector('input[name="' + key + '"][value="all"]');
+      if (radio) radio.checked = true;
+      updateDropdownLabel(key);
+    }
+    applyFilters();
+  }
+
+  /* ── Status buttons ── */
+  statusBtns.forEach(function(btn) {
+    btn.addEventListener('click', function() {
+      state.status = btn.getAttribute('data-filter');
+      statusBtns.forEach(function(b) { b.classList.remove('active'); });
+      btn.classList.add('active');
+      applyFilters();
+    });
+  });
+
+  /* ── Dropdowns ── */
+  function closeAllDropdowns() {
+    document.querySelectorAll('.lc-dropdown-menu').forEach(function(m) { m.classList.remove('open'); });
+    document.querySelectorAll('.lc-dropdown-toggle').forEach(function(t) { t.classList.remove('open'); });
+  }
+
+  document.querySelectorAll('.lc-dropdown-toggle').forEach(function(toggle) {
+    toggle.addEventListener('click', function(e) {
+      e.stopPropagation();
+      var key = toggle.getAttribute('data-dropdown');
+      var menu = document.getElementById('dropdown-' + key);
+      if (!menu) return;
+      var isOpen = menu.classList.contains('open');
+      closeAllDropdowns();
+      if (!isOpen) { menu.classList.add('open'); toggle.classList.add('open'); }
+    });
+  });
+
+  /* Stop clicks inside dropdown from closing it */
+  document.querySelectorAll('.lc-dropdown-menu').forEach(function(menu) {
+    menu.addEventListener('click', function(e) { e.stopPropagation(); });
+  });
+
+  document.addEventListener('click', closeAllDropdowns);
+
+  /* ── Radio inputs ── */
+  ['price', 'location'].forEach(function(key) {
+    document.querySelectorAll('input[name="' + key + '"]').forEach(function(radio) {
+      radio.addEventListener('change', function() {
+        state[key] = radio.value;
+        updateDropdownLabel(key);
+        closeAllDropdowns();
+        applyFilters();
+      });
+    });
+  });
+
+  function updateDropdownLabel(key) {
+    var toggle = document.querySelector('.lc-dropdown-toggle[data-dropdown="' + key + '"]');
+    if (!toggle) return;
+    var defaults = { price: 'Price Range', location: 'Location' };
+    var val = state[key];
+    var label = val === 'all' ? defaults[key] : ((TAG_LABELS[key] && TAG_LABELS[key][val]) || val);
+    toggle.textContent = label;
+    toggle.classList.toggle('active', val !== 'all');
+  }
+
+  /* ── Scroll reveal ── */
+  if ('IntersectionObserver' in window) {
+    allCards.forEach(function(card) {
+      card.style.opacity = '0';
+      card.style.transform = 'translateY(20px)';
+      card.style.transition = 'opacity 0.5s ease, transform 0.5s ease, box-shadow 0.35s ease';
+    });
+    var io = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          var idx = allCards.indexOf(entry.target) % 3;
+          setTimeout(function() {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+          }, idx * 75);
+          io.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.08 });
+    allCards.forEach(function(card) { io.observe(card); });
+  }
+
+  /* ── Mobile nav ── */
+  var hambBtn = document.getElementById('hambBtn');
+  var mobileMenu = document.getElementById('mobileMenu');
+  if (hambBtn && mobileMenu) {
+    hambBtn.addEventListener('click', function(e) {
+      e.stopPropagation();
+      mobileMenu.classList.toggle('open');
+    });
+    mobileMenu.addEventListener('click', function(e) { e.stopPropagation(); });
+    document.addEventListener('click', function() { mobileMenu.classList.remove('open'); });
+  }
+
+  /* ── Init ── */
+  applyFilters();
+})();
+</script>
+
+</body>
+</html>
