@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Kwetu Residence | Countryside Calm — Kiambu Road, Kampala</title>
+  <title>Kwetu Residence | City Calm — Naguru, Kampala</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Quicksand:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -20,7 +20,10 @@
     </svg>
     Back to Developments
   </a>
-  <a class="nav-logo" href="index.html">KAYO<span>PROPERTIES</span></a>
+  <a class="nav-logo" href="index.html" aria-label="Kayo Properties home">
+    <img class="brand-logo" src="assets/logo.png" alt="Kayo Properties logo"
+         onerror="this.onerror=null;this.src='https://placehold.co/150x40?text=Kayo+Logo';">
+  </a>
   <a href="#enquiry" class="nav-cta">Enquire Now</a>
 </nav>
 <!-- ════ HERO ════ -->
@@ -28,9 +31,11 @@
   <!-- Video — replace src with your actual video file -->
   <video
   class="hero-video"
-  autoplay muted loop playsinline
+  autoplay muted loop playsinline preload="auto"
   poster="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1800&q=85">
+  <!-- Drop your own clip at assets/kwetu-video.mp4; the sample below plays until then -->
   <source src="assets/kwetu-video.mp4" type="video/mp4">
+  <source src="https://videos.pexels.com/video-files/2675511/2675511-uhd_3840_2160_24fps.mp4" type="video/mp4">
 </video>
   <div class="hero-overlay"></div>
 
@@ -78,9 +83,10 @@
         <div class="hero-stat__icon-label">
           <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
             <rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 9h18M9 21V9"/></svg>
-          View Floorplans
+          Book a Slot now
         </div>
-        <div class="hero-stat__value"><a href="#floorplans">Download PDF</a></div>
+        <div class="hero-stat__value"><a href="assets/Kwetu Residence Naguru - 2 Bedroom Price List (UGX, 24 months).pdf" download> Download PDF</a>
+</div>
       </div>
     </div>
   </div>
@@ -139,12 +145,34 @@
   </div>
 </section>
 
-<!-- ════ FULL WIDTH ════ -->
-<section class="full-img">
-  <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1800&q=85" alt="Kwetu Residence aerial">
-  <div class="full-img-cover reveal">
-    <span>Bi-Level Family Living</span>
-    <h2>Built for How Families Actually Live</h2>
+<!-- ════ FLOOR PLAN SLIDER ════ -->
+<section class="fp-section">
+  <div class="fp-head reveal">
+    <div class="section-tag" style="justify-content:center;">Floor Plans</div>
+    <h2>Explore Every Level</h2>
+  </div>
+  <div class="fp-slider reveal" id="fpSlider" aria-roledescription="carousel" aria-label="Kwetu floor plans">
+    <div class="fp-track">
+      <figure class="fp-slide is-active" aria-roledescription="slide">
+        <img src="assets/floor1.png" alt="Kwetu Residence floor plan — Ground Floor">
+        <figcaption>Ground Floor</figcaption>
+      </figure>
+      <figure class="fp-slide" aria-roledescription="slide" aria-hidden="true">
+        <img src="assets/floor2.png" alt="Kwetu Residence floor plan — First Floor">
+        <figcaption>First Floor</figcaption>
+      </figure>
+      <figure class="fp-slide" aria-roledescription="slide" aria-hidden="true">
+        <img src="assets/floor3.png" alt="Kwetu Residence floor plan — Plan 3">
+        <figcaption>Roof Terrace</figcaption>
+      </figure>
+      <figure class="fp-slide" aria-roledescription="slide" aria-hidden="true">
+        <img src="assets/floor4.png" alt="Kwetu Residence floor plan — Plan 4">
+        <figcaption>Site Plan</figcaption>
+      </figure>
+    </div>
+    <button class="fp-arrow fp-prev" type="button" aria-label="Previous floor plan">&#8249;</button>
+    <button class="fp-arrow fp-next" type="button" aria-label="Next floor plan">&#8250;</button>
+    <div class="fp-dots" id="fpDots" role="tablist" aria-label="Choose floor plan"></div>
   </div>
 </section>
 
@@ -196,10 +224,49 @@
     <h3>Where the Garden Becomes Another Room</h3>
     <p>The outdoor spaces at Kwetu are as considered as the interiors. A shaded dining terrace flows from the kitchen; a second, more intimate lounge terrace sits off the living room — quieter, intended for unhurried evenings with a book or a glass of wine.</p>
     <p>Private landscaped gardens wrap each villa in green, with mature trees already established on the site. Staff quarters, a utility yard, and covered parking complete a residence that thinks through every detail. This is what it means to be at home.</p>
-    <a href="#" class="cta-link" style="margin-top:12px;">
-      How to Buy Property in Uganda
+    <a href="index.html" class="cta-link" style="margin-top:12px;">
+      Find out More 
       <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
     </a>
+  </div>
+</section>
+
+<!-- ════ WHY KWETU ════ -->
+<section class="kd-why">
+  <div class="kd-why-head reveal">
+    <div class="section-tag" style="justify-content:center;">Why Kwetu</div>
+    <h2>Six Reasons Families Choose Kwetu</h2>
+  </div>
+  <div class="kd-why-grid">
+    <div class="kd-why-img reveal-l">
+      <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=900&q=85" alt="Life at Kwetu Residence">
+    </div>
+    <div class="kd-why-list reveal-r">
+      <div class="kd-why-item">
+        <span class="kd-why-num">01</span>
+        <div><h4>A Prime Naguru Address</h4><p>Minutes from the city centre, yet wrapped in a quiet, tree-lined hillside that feels worlds away.</p></div>
+      </div>
+      <div class="kd-why-item">
+        <span class="kd-why-num">02</span>
+        <div><h4>Generous, Bi-Level Living</h4><p>4,200 sq.ft. of considered space across two levels — room for every member of the household to breathe.</p></div>
+      </div>
+      <div class="kd-why-item">
+        <span class="kd-why-num">03</span>
+        <div><h4>Only Six Residences</h4><p>A genuinely limited release. Exclusivity, privacy, and a community that stays small by design.</p></div>
+      </div>
+      <div class="kd-why-item">
+        <span class="kd-why-num">04</span>
+        <div><h4>Built for Strong Returns</h4><p>Naguru's enduring demand and limited supply make Kwetu a resilient long-term asset.</p></div>
+      </div>
+      <div class="kd-why-item">
+        <span class="kd-why-num">05</span>
+        <div><h4>Natural Materials, Lasting Quality</h4><p>Timber, stone and terrazzo finishes chosen to age gracefully and stand the test of time.</p></div>
+      </div>
+      <div class="kd-why-item">
+        <span class="kd-why-num">06</span>
+        <div><h4>Move-In Ready Confidence</h4><p>Construction is already underway with a clear Q3 2026 completion and transparent payment terms.</p></div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -243,13 +310,40 @@
       <div class="perk-lbl">Double Covered Parking</div>
     </div>
   </div>
-  <a href="#" class="perks-dl reveal" id="floorplans">
+  <a href="assets/Kwetu Residence Naguru - 2 Bedroom Price List (UGX, 24 months).pdf" class="perks-dl reveal" id="floorplans">
     <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
     Download Brochure & Floorplans
   </a>
 </section>
 
 
+
+<!-- ════ LOCATION & MAP ════ -->
+<section class="kd-location" id="location">
+  <div class="kd-loc-map reveal-l">
+    <iframe
+      title="Kwetu Residence — Naguru, Kampala"
+      src="https://maps.google.com/maps?q=Naguru,%20Kampala,%20Uganda&t=&z=14&ie=UTF8&iwloc=&output=embed"
+      loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+  </div>
+  <div class="kd-loc-summary reveal-r">
+    <div class="section-tag">Location &amp; Pricing</div>
+    <h3>Set in the Hills of Naguru</h3>
+    <p class="kd-loc-intro">Kwetu Residence sits along Naguru Road in Kampala — a serene, established neighbourhood minutes from the city, embassies and the Northern Bypass.</p>
+    <ul class="kd-summary-list">
+      <li><span>Four Bed Villas From</span><strong>UGX 350M</strong></li>
+      <li><span>Bedrooms</span><strong>4 En-suite</strong></li>
+      <li><span>Size</span><strong>4,200 sq.ft.</strong></li>
+      <li><span>Completion</span><strong>Q3 2026</strong></li>
+      <li><span>Payment</span><strong>30% deposit · balance over 12 months</strong></li>
+      <li><span>Location</span><strong>Naguru, Kampala</strong></li>
+    </ul>
+    <a class="kd-summary-btn" href="https://www.google.com/maps/search/Naguru,+Kampala,+Uganda" target="_blank" rel="noopener noreferrer">Get Directions →</a>
+    <a class="cta-link" href="#enquiry">Register Your Interest
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+</section>
 
 <!-- ════ ENQUIRY FORM ════ -->
 <section class="enquiry" id="enquiry">
@@ -393,6 +487,41 @@
     btn.style.borderColor='var(--gold)';
     btn.disabled=true;
   });
+})();
+
+// ── Floor plan slider
+(function(){
+  var slider=document.getElementById('fpSlider');
+  if(!slider)return;
+  var slides=[].slice.call(slider.querySelectorAll('.fp-slide'));
+  var dotsWrap=slider.querySelector('#fpDots');
+  var prev=slider.querySelector('.fp-prev'), next=slider.querySelector('.fp-next');
+  var i=0, timer=null, DELAY=7000;
+  slides.forEach(function(_,idx){
+    var d=document.createElement('button');
+    d.type='button';
+    d.className='fp-dot'+(idx===0?' is-active':'');
+    d.setAttribute('aria-label','Floor plan '+(idx+1));
+    d.addEventListener('click',function(){go(idx,true);});
+    dotsWrap.appendChild(d);
+  });
+  var dots=[].slice.call(dotsWrap.children);
+  function go(n,user){
+    i=(n+slides.length)%slides.length;
+    slides.forEach(function(s,idx){
+      s.classList.toggle('is-active',idx===i);
+      s.setAttribute('aria-hidden',idx===i?'false':'true');
+    });
+    dots.forEach(function(d,idx){d.classList.toggle('is-active',idx===i);});
+    if(user)restart();
+  }
+  function restart(){stop();timer=setInterval(function(){go(i+1);},DELAY);}
+  function stop(){if(timer)clearInterval(timer);}
+  next.addEventListener('click',function(){go(i+1,true);});
+  prev.addEventListener('click',function(){go(i-1,true);});
+  slider.addEventListener('mouseenter',stop);
+  slider.addEventListener('mouseleave',restart);
+  restart();
 })();
 </script>
 </body>

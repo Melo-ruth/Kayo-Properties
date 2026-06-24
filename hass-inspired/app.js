@@ -170,28 +170,124 @@ document.addEventListener("DOMContentLoaded", function () {
     raf = requestAnimationFrame(tick);
   }
 
-  // ── GO ──
-  build();
-  activate(-1);
+  // ── GO ── (only run when the ecosystem wheel exists on this page)
+  if (nodesG && linesG && cBox) {
+    build();
+    activate(-1);
+  }
 
 });
-document.addEventListener("DOMContentLoaded", function () {
-  const hambBtn = document.getElementById("hambBtn");
-  const mobileMenu = document.getElementById("mobileMenu");
+/* ══════════════════════════════════════
+   KAYO PROPERTIES — Contact Page JS
+   app.js
+══════════════════════════════════════ */
 
-  if (!hambBtn || !mobileMenu) return;
+document.addEventListener('DOMContentLoaded', () => {
 
-  hambBtn.addEventListener("click", function () {
-    mobileMenu.classList.toggle("open");
+  /* ── 1. MOBILE MENU TOGGLE ── */
+  const hambBtn   = document.getElementById('hambBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
 
-    if (mobileMenu.classList.contains("open")) {
-      hambBtn.textContent = "×";
-      hambBtn.setAttribute("aria-label", "Close menu");
-    } else {
-      hambBtn.textContent = "☰";
-      hambBtn.setAttribute("aria-label", "Open menu");
+  if (hambBtn && mobileMenu) {
+    hambBtn.addEventListener('click', () => {
+      const isOpen = mobileMenu.classList.toggle('open');
+      hambBtn.setAttribute('aria-expanded', isOpen);
+      hambBtn.textContent = isOpen ? '✕' : '☰';
+    });
+
+    // Close menu when a link is tapped
+    mobileMenu.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('open');
+        hambBtn.setAttribute('aria-expanded', false);
+        hambBtn.textContent = '☰';
+      });
+    });
+  }
+
+
+  /* ── 2. SCROLL REVEAL (IntersectionObserver) ── */
+  const revealEls = document.querySelectorAll(
+    '.reveal, .reveal-left, .reveal-right, .stagger'
+  );
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        io.unobserve(entry.target); // fire once only
+      }
+    });
+  }, {
+    threshold: 0.12,
+    rootMargin: '0px 0px -40px 0px'
+  });
+
+  revealEls.forEach(el => io.observe(el));
+
+
+  /* ── 3. HERO GHOST TEXT PARALLAX ── */
+  const ghost = document.querySelector('.hero-ghost');
+
+  if (ghost) {
+    window.addEventListener('scroll', () => {
+      const y = window.scrollY;
+      ghost.style.transform = `translateY(${y * 0.18}px)`;
+    }, { passive: true });
+  }
+
+
+  /* ── 4. CONTACT FORM SUBMIT ── */
+  const contactForm  = document.getElementById('contactForm');
+  const formSuccess  = document.getElementById('formSuccess');
+
+  if (contactForm && formSuccess) {
+    contactForm.addEventListener('submit', (e) => {
+      e.preventDefault();
+
+      // Basic validation — highlight empty required fields
+      const required = contactForm.querySelectorAll('input[required], textarea[required], select[required]');
+      let valid = true;
+
+      required.forEach(field => {
+        if (!field.value.trim()) {
+          field.style.borderColor = 'rgba(220,80,80,0.6)';
+          valid = false;
+        } else {
+          field.style.borderColor = '';
+        }
+      });
+
+      if (!valid) return;
+
+      // Show success state
+      contactForm.style.display = 'none';
+      formSuccess.style.display = 'flex';
+
+      // ↓ Replace this block with your real form submission, e.g.:
+      // fetch('/api/contact', { method: 'POST', body: new FormData(contactForm) })
+      //   .then(res => res.json())
+      //   .then(() => { contactForm.style.display = 'none'; formSuccess.style.display = 'flex'; })
+      //   .catch(err => console.error(err));
+    });
+
+    // Clear red border on input
+    contactForm.querySelectorAll('input, textarea, select').forEach(field => {
+      field.addEventListener('input', () => {
+        field.style.borderColor = '';
+      });
+    });
+  }
+
+
+  /* ── 5. ACTIVE NAV LINK ── */
+  const currentPage = window.location.pathname.split('/').pop();
+  document.querySelectorAll('.nav-links a, .mobile-menu a').forEach(link => {
+    const linkPage = link.getAttribute('href');
+    if (linkPage === currentPage) {
+      link.classList.add('active');
     }
   });
-});
 
+});
 

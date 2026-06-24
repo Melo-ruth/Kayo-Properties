@@ -12,13 +12,16 @@
 <body>
 <header class="site-header">
    <div class="container nav">
-  <a class="brand" href="index.html">KAYO<span>PROPERTIES</span></a>
+  <a class="brand" href="index.html" aria-label="Kayo Properties home">
+    <img class="brand-logo" src="assets/logo.png" alt="Kayo Properties logo"
+         onerror="this.onerror=null;this.src='https://placehold.co/150x40?text=Kayo+Logo';">
+  </a>
 
   <nav class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="#about">About</a>
     <a href="ecosystem.html">Ecosystem</a>
     <a href="developments.html">Developments</a>
-    <a href="about.html">About</a>
-    <a href="investments.html">Investments</a>
     <a href="contacts.html">Contact</a>
   </nav>
 
@@ -28,140 +31,163 @@
 </div>
 
 <div class="mobile-menu" id="mobileMenu">
-  <a href="ecosystem.html">Ecosystem</a>
-  <a href="developments.html">Developments</a>
-  <a href="about.html">About</a>
-  <a href="investments.html">List Property</a>
-  <a href="contacts.html">Contact</a>
+  <a href="index.html">Home</a>
+    <a href="#about">About</a>
+    <a href="ecosystem.html">Ecosystem</a>
+    <a href="developments.html">Developments</a>
+    <a href="contacts.html">Contact</a>
 </div>
                
 </header>
 
     
-  <section class="hero">
-  <div class="hero-grain"></div>
-  <div class="hero-inner">
-    <div class="hero-text">
-      <div class="kicker">Modern real estate ecosystem</div>
-      <p class="hero-subtitle">Working as one.</p>
-      <h1>Every Angle.<br><span>One Ecosystem.</span></h1>
-      <div class="hero-lines">
-        <p>Kayo Properties is an integrated real estate platform focused on development, investment, living experiences, and architectural craftsmanship across Uganda's evolving urban landscape.</p>
-      
-      </div>
-      <div class="hero-actions">
-        <a class="btn lime" href="#ecosystem">Get In Touch</a>
-      </div>
+  <!-- HERO IMAGE SLIDER — replace assets/slide-*.jpg with real images later -->
+  <section class="hero-slider" id="heroSlider" aria-label="Featured properties" aria-roledescription="carousel">
+    <div class="hero-track">
+
+      <article class="hero-slide is-active" aria-roledescription="slide">
+        <img class="hero-slide-img" src="assets/house1.jpeg" alt="Modern real estate ecosystem"
+             onerror="this.onerror=null;this.src='https://placehold.co/1600x900/0b1921/c8a96e?text=Slide+1';">
+        <div class="hero-slide-scrim"></div>
+        <div class="hero-slide-content">
+          <p class="hero-slide-eyebrow">Modern Real Estate Ecosystem</p>
+          <h1 class="hero-slide-title">Every Angle.<br><em>One Ecosystem.</em></h1>
+          <p class="hero-slide-text">An integrated platform across development, investment, living, hospitality and craft.</p>
+          <a class="hero-slide-btn" href="#ecosystem">Explore the Ecosystem →</a>
+        </div>
+      </article>
+
+      <article class="hero-slide" aria-roledescription="slide" aria-hidden="true">
+        <img class="hero-slide-img" src="assets/kwetu2.jpg" alt="Developments"
+             onerror="this.onerror=null;this.src='https://placehold.co/1600x900/142733/dfc78d?text=Slide+2';">
+        <div class="hero-slide-scrim"></div>
+        <div class="hero-slide-content">
+          <p class="hero-slide-eyebrow">Now Selling — Naguru</p>
+          <h1 class="hero-slide-title">Kwetu Residence.<br><em>City Living.</em></h1>
+          <p class="hero-slide-text">Contemporary condominium living in one of Kampala's most connected neighbourhoods.</p>
+          <a class="hero-slide-btn" href="developments.html">View Developments →</a>
+        </div>
+      </article>
+
+      <article class="hero-slide" aria-roledescription="slide" aria-hidden="true">
+        <img class="hero-slide-img" src="assets/house3.jpeg" alt="Investment"
+             onerror="this.onerror=null;this.src='https://placehold.co/1600x900/182832/c8a96e?text=Slide+3';">
+        <div class="hero-slide-scrim"></div>
+        <div class="hero-slide-content">
+          <p class="hero-slide-eyebrow">Built for the Long Term</p>
+          <h1 class="hero-slide-title">Invest With<br><em>Conviction.</em></h1>
+          <p class="hero-slide-text">Carefully selected opportunities shaped around rental yield and lasting value.</p>
+          <a class="hero-slide-btn" href="contacts.html">Get in Touch →</a>
+        </div>
+      </article>
+
     </div>
-    <div class="hero-tiles">
-      <!-- Video tile -->
-      <div class="tile tile-video">
-        <video autoplay muted loop playsinline>
-          <source src="https://videos.pexels.com/video-files/2659434/2659434-hd_1920_1080_30fps.mp4" type="video/mp4">
-        </video>
-      </div>
-      <!-- Image tiles -->
-      <div class="tile tile-1">
-        <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=460&q=80" alt="Modern apartment interior">
-      </div>
-      <div class="tile tile-2">
-        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=460&q=80" alt="Commercial building">
-      </div>
-      <div class="tile tile-3">
-        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=460&q=80" alt="Luxury home exterior">
-      </div>
-      <div class="tile tile-4">
-        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=460&q=80" alt="Modern living space">
-      </div>
-      <div class="tile tile-5">
-        <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=460&q=80" alt="Property landscape">
-      </div>
-    </div>
-  </div>
-</section>
+
+    <button class="hero-arrow hero-prev" type="button" aria-label="Previous slide">&#8249;</button>
+    <button class="hero-arrow hero-next" type="button" aria-label="Next slide">&#8250;</button>
+    <div class="hero-dots" id="heroDots" role="tablist" aria-label="Choose slide"></div>
+  </section>
 
 
 <!--portfolio section ------>
 <section class="hc-features">
+  <div class="hc-features-inner">
  
-  <!-- HEADER -->
-  <div class="hc-features-header">
-    <span>New Features</span>
-    <div class="label-line"></div>
-  </div>
- 
-  <!-- TILE GRID -->
-  <div class="hc-features-grid">
- 
-    <!-- TILE 1 — single image -->
-    <div class="hf-tile">
-      <div class="hf-tile-img">
-        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=900&q=80" alt="Resort living">
-      </div>
-      <div class="hf-tile-body">
-        <h3 class="hf-tile-title">Discover The New<br>Age of Living</h3>
-        <p class="hf-tile-desc">Experience seamless living wrapped in resort-style comfort.</p>
-        <a href="#" class="hf-tile-btn">Know More</a>
-      </div>
+    <div class="hc-features-header">
+      <span>Our Offerings</span>
+      <div class="label-line"></div>
     </div>
  
-    <!-- TILE 2 — mosaic -->
-    <div class="hf-tile">
-      <div class="hf-tile-img mosaic">
-        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=400&q=75" alt="Interior 1" class="m-tl">
-        <img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=400&q=75" alt="Interior 2" class="m-tr">
-        <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?auto=format&fit=crop&w=400&q=75" alt="Interior 3" class="m-bl">
-        <img src="https://images.unsplash.com/photo-1600573472592-401b489a3cdc?auto=format&fit=crop&w=400&q=75" alt="Interior 4" class="m-br">
-      </div>
-      <div class="hf-tile-body">
-        <h3 class="hf-tile-title">Breathtaking<br>Developments</h3>
-        <p class="hf-tile-desc">Explore our properties for sale inspired by innovation and design.</p>
-        <a href="#" class="hf-tile-btn">Explore</a>
-      </div>
-    </div>
+    <div class="hc-features-grid">
  
-    <!-- TILE 3 — overlay text -->
-    <div class="hf-tile">
-      <div class="hf-tile-img overlay-card">
-        <img src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=900&q=80" alt="Insights">
-        <div class="overlay-text">
-          <span class="ov-year">2026</span>
-          <span class="ov-live">Live</span>
-          <span class="ov-boldly">Boldly</span>
-          <span class="ov-brand">Kayo Properties</span>
+      <!-- Tile 1: Single hero image -->
+      <div class="hf-tile">
+        <div class="hf-tile-img">
+          <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=900&q=80" alt="Modern luxury residence" />
+        </div>
+        <div class="hf-tile-body">
+          <h3 class="hf-tile-title">Discover the New<br>Age of Living</h3>
+          <p class="hf-tile-desc">Experience seamless living wrapped in resort-style comfort.</p>
+          <a href="#" class="hf-tile-btn">Know More</a>
         </div>
       </div>
-      <div class="hf-tile-body">
-        <h3 class="hf-tile-title">Explore Property<br>Insights</h3>
-        <p class="hf-tile-desc">Peruse a carefully curated blog for lifestyle, buying and property investment.</p>
-        <a href="#" class="hf-tile-btn">Start Reading</a>
-      </div>
-    </div>
  
+      <!-- Tile 2: Mosaic image grid -->
+      <div class="hf-tile">
+        <div class="hf-tile-img mosaic">
+          <img class="m-tl" src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=600&q=80" alt="Interior" />
+          <img class="m-tr" src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?w=600&q=80" alt="Exterior" />
+          <img class="m-bl" src="https://images.unsplash.com/photo-1600566753086-00f18fb6b3ea?w=600&q=80" alt="Detail" />
+          <img class="m-br" src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=600&q=80" alt="Architecture" />
+        </div>
+        <div class="hf-tile-body">
+          <h3 class="hf-tile-title">Breathtaking<br>Developments</h3>
+          <p class="hf-tile-desc">Explore our properties for sale inspired by innovation and design.</p>
+          <a href="#" class="hf-tile-btn">Explore</a>
+        </div>
+      </div>
+ 
+      <!-- Tile 3: Overlay card -->
+      <div class="hf-tile">
+        <div class="hf-tile-img overlay-card">
+          <img src="https://images.unsplash.com/photo-1486325212027-8081e485255e?w=900&q=80" alt="City skyline" />
+          <div class="overlay-text">
+            <span class="ov-year">2026</span>
+            <span class="ov-live">Live</span>
+            <span class="ov-boldly">Boldly</span>
+            <span class="ov-brand">Kayo Properties</span>
+          </div>
+        </div>
+        <div class="hf-tile-body">
+          <h3 class="hf-tile-title">Explore Property<br>Insights</h3>
+          <p class="hf-tile-desc">A carefully curated blog for lifestyle, buying and property investment.</p>
+          <a href="#" class="hf-tile-btn">Start Reading</a>
+        </div>
+      </div>
+ 
+    </div>
   </div>
 </section>
  
-<!--about section-->
-<section class="dark-feature" id="about">
-  <div class="dark-inner">
-    <div class="reveal">
-      <p class="kicker">About Kayo Properties</p>
-      <h2 class="section-title">Built on a<br><em>Clear Point of View.</em></h2>
+<!-- ABOUT SECTION -->
+<section class="about-feature" id="about">
+  <div class="about-inner">
+
+    <div class="about-left">
+      <p class="about-kicker">About Kayo Properties</p>
+
+      <h2 class="about-title">
+        Built on a<br>
+        <em>Clear Point of View.</em>
+      </h2>
+
+      <div class="about-line"></div>
+
+      <div class="about-copy">
+        <p>
+          Kayo Properties was founded on a straightforward observation:
+          Kampala was growing fast, and most of the real estate being built
+          was not keeping pace with how people actually wanted to live and invest.
+        </p>
+
+        <p>
+          The platform was created to change that — not by building more,
+          but by building more intentionally. Six integrated divisions.
+          A single long-term philosophy. One team that controls quality
+          from land to living.
+        </p>
+      </div>
     </div>
 
-    <div class="dark-copy reveal">
+    <div class="about-quote">
       <p>
-        Kayo Properties was founded on a straightforward observation: 
-        Kampala was growing fast, and most of the real estate being built wasn't keeping pace with how people actually wanted to live and invest.
+        “We are not trying to be the biggest developer in Kampala.
+        We are trying to be the most considered one.”
       </p>
 
-      <br>
-
-      <p>
-        The platform was created to change that — not by building more, but by building more intentionally. 
-        Six integrated divisions. A single long-term philosophy. One team that controls quality from land to living.
-      </p>
+      <span>Kayobyo Derrick — Founder & Director</span>
     </div>
+
   </div>
 </section>
 
@@ -227,6 +253,170 @@
   </div>
 </section>
 
+<!----form-->
+<div class="kayo-enquiry-wrap">
+  <div class="kayo-enquiry" id="kayoForm">
+ 
+    <div class="kayo-enquiry__header">
+      <div>
+        <p class="kayo-enquiry__eyebrow">Kayo Properties</p>
+        <h2 class="kayo-enquiry__title">Get In <em>Touch</em></h2>
+      </div>
+      <p class="kayo-enquiry__subtitle">Our team typically responds within one business day.</p>
+    </div>
+ 
+    <div class="kayo-enquiry__tabs">
+      <button class="kayo-tab active" data-tab="enquiry">General Enquiry</button>
+      <button class="kayo-tab" data-tab="booking">Schedule a Viewing</button>
+    </div>
+ 
+    <form id="kayoFormEl" novalidate>
+ 
+      <div class="kayo-enquiry__body">
+ 
+        <!-- General Enquiry -->
+        <div class="kayo-panel active" id="panel-enquiry">
+          <div class="kayo-grid">
+            <div class="kayo-field">
+              <label for="eq-fname">First Name</label>
+              <input id="eq-fname" type="text" placeholder="e.g. Amara" />
+            </div>
+            <div class="kayo-field">
+              <label for="eq-lname">Last Name</label>
+              <input id="eq-lname" type="text" placeholder="e.g. Nakato" />
+            </div>
+            <div class="kayo-field">
+              <label for="eq-email">Email Address</label>
+              <input id="eq-email" type="email" placeholder="you@example.com" />
+            </div>
+            <div class="kayo-field">
+              <label for="eq-phone">Phone Number</label>
+              <input id="eq-phone" type="tel" placeholder="+256 700 000 000" />
+            </div>
+            <div class="kayo-field kayo-span3">
+              <label for="eq-interest">Area of Interest</label>
+              <select id="eq-interest">
+                <option value="" disabled selected>Select a division</option>
+                <option>Development &amp; Investment</option>
+                <option>Property Management</option>
+                <option>Hospitality &amp; Living</option>
+                <option>Architectural Finishing</option>
+                <option>Land Acquisition</option>
+                <option>General Information</option>
+              </select>
+            </div>
+            <div class="kayo-field kayo-span3">
+              <label for="eq-message">Your Message</label>
+              <textarea id="eq-message" placeholder="Tell us what you are looking for…"></textarea>
+            </div>
+          </div>
+        </div>
+ 
+        <!-- Schedule a Viewing -->
+        <div class="kayo-panel" id="panel-booking">
+          <div class="kayo-grid">
+            <div class="kayo-field">
+              <label for="bk-fname">First Name</label>
+              <input id="bk-fname" type="text" placeholder="e.g. Amara" />
+            </div>
+            <div class="kayo-field">
+              <label for="bk-lname">Last Name</label>
+              <input id="bk-lname" type="text" placeholder="e.g. Nakato" />
+            </div>
+            <div class="kayo-field">
+              <label for="bk-email">Email Address</label>
+              <input id="bk-email" type="email" placeholder="you@example.com" />
+            </div>
+            <div class="kayo-field">
+              <label for="bk-phone">Phone Number</label>
+              <input id="bk-phone" type="tel" placeholder="+256 700 000 000" />
+            </div>
+          </div>
+ 
+          <div class="kayo-form-divider"></div>
+ 
+          <div class="kayo-grid kayo-grid--3">
+            <div class="kayo-field kayo-span2">
+              <label for="bk-property">Development / Property</label>
+              <select id="bk-property">
+                <option value="" disabled selected>Select a development</option>
+                <option>Kayo Residences — Kololo</option>
+                <option>Kayo Heights — Naguru</option>
+                <option>Kayo Court — Muyenga</option>
+                <option>Kayo Office Suites — CBD</option>
+                <option>Other / Not Sure Yet</option>
+              </select>
+            </div>
+            <div class="kayo-field">
+              <label for="bk-type">Unit Type</label>
+              <select id="bk-type">
+                <option value="" disabled selected>Type</option>
+                <option>Studio</option>
+                <option>1 Bedroom</option>
+                <option>2 Bedrooms</option>
+                <option>3 Bedrooms</option>
+                <option>Penthouse</option>
+                <option>Commercial</option>
+              </select>
+            </div>
+            <div class="kayo-field">
+              <label for="bk-date">Preferred Date</label>
+              <input id="bk-date" type="date" />
+            </div>
+            <div class="kayo-field">
+              <label for="bk-time">Preferred Time</label>
+              <select id="bk-time">
+                <option value="" disabled selected>Time slot</option>
+                <option>9:00 AM – 10:00 AM</option>
+                <option>10:00 AM – 11:00 AM</option>
+                <option>11:00 AM – 12:00 PM</option>
+                <option>1:00 PM – 2:00 PM</option>
+                <option>2:00 PM – 3:00 PM</option>
+                <option>3:00 PM – 4:00 PM</option>
+              </select>
+            </div>
+            <div class="kayo-field">
+              <label for="bk-budget">Budget Range (USD)</label>
+              <select id="bk-budget">
+                <option value="" disabled selected>Budget</option>
+                <option>Under $50,000</option>
+                <option>$50,000 – $100,000</option>
+                <option>$100,000 – $250,000</option>
+                <option>$250,000 – $500,000</option>
+                <option>Above $500,000</option>
+              </select>
+            </div>
+            <div class="kayo-field kayo-span3">
+              <label for="bk-notes">Additional Notes</label>
+              <textarea id="bk-notes" placeholder="Anything we should know before the viewing…" style="min-height:72px;"></textarea>
+            </div>
+          </div>
+        </div>
+ 
+      </div>
+ 
+      <div class="kayo-enquiry__footer">
+        <p class="kayo-enquiry__note">
+          <strong>Your details are kept private.</strong> We will never share your information with third parties. A member of the Kayo team will be in touch shortly.
+        </p>
+        <button type="submit" class="kayo-btn" id="submitBtn">Send Enquiry →</button>
+      </div>
+ 
+    </form>
+ 
+    <div class="kayo-success" id="kayoSuccess">
+      <div class="kayo-success__icon">
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+          <polyline points="4 10 8 14 16 6"/>
+        </svg>
+      </div>
+      <h3 class="kayo-success__heading">Thank You</h3>
+      <p class="kayo-success__text">Your enquiry has been received. A member of the Kayo Properties team will be in contact within one business day.</p>
+    </div>
+ 
+  </div>
+</div>
+
 <footer class="footer">
 
   <!-- Centered logo mark -->
@@ -252,6 +442,59 @@
 
 </footer>
 <script src="app.js"></script>
+
+<!-- HERO SLIDER -->
+<script>
+(function () {
+  const slider = document.getElementById('heroSlider');
+  if (!slider) return;
+  const slides = Array.from(slider.querySelectorAll('.hero-slide'));
+  const dotsWrap = slider.querySelector('#heroDots');
+  const prev = slider.querySelector('.hero-prev');
+  const next = slider.querySelector('.hero-next');
+  let i = 0, timer = null;
+  const DELAY = 5500;
+
+  // build dots
+  slides.forEach((_, idx) => {
+    const d = document.createElement('button');
+    d.type = 'button';
+    d.className = 'hero-dot' + (idx === 0 ? ' is-active' : '');
+    d.setAttribute('role', 'tab');
+    d.setAttribute('aria-label', 'Go to slide ' + (idx + 1));
+    d.addEventListener('click', () => go(idx, true));
+    dotsWrap.appendChild(d);
+  });
+  const dots = Array.from(dotsWrap.children);
+
+  function go(n, user) {
+    i = (n + slides.length) % slides.length;
+    slides.forEach((s, idx) => {
+      const active = idx === i;
+      s.classList.toggle('is-active', active);
+      s.setAttribute('aria-hidden', active ? 'false' : 'true');
+    });
+    dots.forEach((d, idx) => d.classList.toggle('is-active', idx === i));
+    if (user) restart();
+  }
+  const nextSlide = () => go(i + 1);
+  const prevSlide = () => go(i - 1);
+
+  function restart() { stop(); timer = setInterval(nextSlide, DELAY); }
+  function stop() { if (timer) clearInterval(timer); }
+
+  next.addEventListener('click', () => go(i + 1, true));
+  prev.addEventListener('click', () => go(i - 1, true));
+  slider.addEventListener('mouseenter', stop);
+  slider.addEventListener('mouseleave', restart);
+  document.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight') nextSlide();
+    if (e.key === 'ArrowLeft') prevSlide();
+  });
+
+  restart();
+})();
+</script>
 
 </body>
 
