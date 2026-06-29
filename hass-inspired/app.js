@@ -1,12 +1,3 @@
-const data=[
- {title:'Lakeview Villa Estate',area:'Northern Crescent',price:'From KES 48M',beds:4,baths:4,size:'320 sqm'},
- {title:'Riverside Mixed-Use Quarter',area:'Central Business Belt',price:'From KES 16M',beds:2,baths:2,size:'110 sqm'},
- {title:'Garden Apartments',area:'Green Suburb',price:'From KES 12M',beds:2,baths:2,size:'95 sqm'},
- {title:'Executive Townhouses',area:'Diplomatic Area',price:'From KES 36M',beds:3,baths:4,size:'260 sqm'},
- {title:'Commercial Office Suites',area:'Enterprise Road',price:'From KES 22M',beds:'Office',baths:'Parking',size:'80 sqm'}
-];
-function render(id){let el=document.getElementById(id);if(!el)return;el.innerHTML=data.map(p=>`<article class="portfolio-card"><div class="ph"></div><div class="body"><small>${p.area}</small><h3>${p.title}</h3><div class="meta"><span>${p.beds}</span><span>${p.baths}</span><span>${p.size}</span></div><p><strong>${p.price}</strong></p></div></article>`).join('')}
-render('properties');render('developments');
 document.addEventListener("DOMContentLoaded", function () {
 
   var items = [
@@ -291,3 +282,142 @@ document.addEventListener('DOMContentLoaded', () => {
 
 });
 
+document.addEventListener('DOMContentLoaded',()=>{
+ const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>Array.from(r.querySelectorAll(s));
+ const hamb=$('#hambBtn'), menu=$('#mobileMenu');
+ if(hamb&&menu){hamb.addEventListener('click',()=>{const open=menu.classList.toggle('open');hamb.setAttribute('aria-expanded',open);hamb.innerHTML=open?'×':'☰'});$$('.mobile-menu a').forEach(a=>a.addEventListener('click',()=>{menu.classList.remove('open');hamb.innerHTML='☰';hamb.setAttribute('aria-expanded','false')}));}
+ const reveal=$$('.reveal'); const obs=new IntersectionObserver((entries,o)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');o.unobserve(e.target)}})},{threshold:.08,rootMargin:'0px 0px -30px 0px'}); reveal.forEach((el,i)=>{el.style.transitionDelay=Math.min(i*35,180)+'ms';obs.observe(el)});
+ const count=$$('.stat-num[data-count]'); const cobs=new IntersectionObserver((entries,o)=>{entries.forEach(e=>{if(!e.isIntersecting)return;const el=e.target,target=parseInt(el.dataset.count,10);let st=null;function step(ts){if(!st)st=ts;let p=Math.min((ts-st)/950,1);el.textContent=Math.floor((1-Math.pow(1-p,3))*target);if(p<1)requestAnimationFrame(step);else el.textContent=target}requestAnimationFrame(step);o.unobserve(el)})},{threshold:.7});count.forEach(el=>cobs.observe(el));
+ const thumbs=$$('.index-thumb'), entries=$$('.index-entry');let current=0;function show(i){current=Math.max(0,Math.min(i,entries.length-1));entries.forEach((e,k)=>e.classList.toggle('hidden',k!==current));thumbs.forEach((t,k)=>t.classList.toggle('active',k===current));}thumbs.forEach((t,i)=>{t.addEventListener('click',()=>show(i));t.setAttribute('tabindex','0');t.addEventListener('keydown',e=>{if(e.key==='ArrowRight')show(current+1);if(e.key==='ArrowLeft')show(current-1)})});show(0);
+ $$('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{const target=$(a.getAttribute('href'));if(target){e.preventDefault();target.scrollIntoView({behavior:'smooth',block:'start'});}}));
+ const navLinks=$$('.nav a[href^="#"]'), sections=$$('main section[id]'); const sobs=new IntersectionObserver(es=>{es.forEach(e=>{if(e.isIntersecting){navLinks.forEach(a=>a.classList.toggle('active',a.getAttribute('href')==='#'+e.target.id))}})},{threshold:.35});sections.forEach(s=>sobs.observe(s));
+ // Close the mobile menu when clicking outside of it
+ document.addEventListener('click',e=>{if(menu&&hamb&&menu.classList.contains('open')&&!hamb.contains(e.target)&&!menu.contains(e.target)){menu.classList.remove('open');hamb.innerHTML='☰';hamb.setAttribute('aria-expanded','false');}});
+});
+
+
+  const ANTHROPIC_ENDPOINT = "https://api.anthropic.com/v1/messages";
+ 
+  const SYSTEM_PROMPT = `You are a knowledgeable and warm real estate advisor for Kayo Properties, 
+a premium property company based in Kampala, Uganda. Your role is to help clients find their 
+ideal property, whether buying, renting, or investing.
+ 
+Guidelines:
+- Be concise (2-4 sentences per reply unless detail is truly needed)
+- Use a warm, professional tone — not salesy, but genuinely helpful
+- Focus on Kampala and Uganda real estate context (neighbourhoods like Kololo, Naguru, Muyenga, Bugolobi, Ntinda, Bukoto, Entebbe Road corridor)
+- Give practical guidance on the local market, pricing norms, legal steps (title deeds, Mailo land, lease hold), and neighbourhoods
+- If asked to book/schedule, say you'll connect them with a human advisor and ask for their name and preferred time
+- Never invent specific listing prices — say prices vary and offer to connect with the team
+- Keep replies friendly and brief; avoid bullet-heavy walls of text`;
+ 
+  let chatOpen = false;
+  let conversationHistory = [];
+  let greeted = false;
+ 
+  function toggleChat() {
+    chatOpen = !chatOpen;
+    const chat = document.getElementById('kayo-chat');
+    const cta  = document.getElementById('kayo-cta');
+    chat.classList.toggle('open', chatOpen);
+    if (chatOpen) {
+      cta.style.display = 'none';
+      if (!greeted) { greet(); greeted = true; }
+      setTimeout(() => document.getElementById('chat-input').focus(), 300);
+    } else {
+      cta.style.display = 'flex';
+    }
+  }
+ 
+  function greet() {
+    appendBot("Hello! I'm Kayo's property advisor. Whether you're looking to buy, rent, or invest in Kampala — I'm here to help. What can I assist you with today?");
+  }
+ 
+  function appendBot(text) {
+    const div = document.createElement('div');
+    div.className = 'msg bot';
+    div.textContent = text;
+    getMessages().appendChild(div);
+    scrollBottom();
+  }
+ 
+  function appendUser(text) {
+    const div = document.createElement('div');
+    div.className = 'msg user';
+    div.textContent = text;
+    getMessages().appendChild(div);
+    hideQuickReplies();
+    scrollBottom();
+  }
+ 
+  function showTyping() {
+    const div = document.createElement('div');
+    div.className = 'msg typing';
+    div.id = 'typing-indicator';
+    div.innerHTML = '<div class="typing-dots"><span></span><span></span><span></span></div>';
+    getMessages().appendChild(div);
+    scrollBottom();
+    return div;
+  }
+ 
+  function removeTyping() {
+    const el = document.getElementById('typing-indicator');
+    if (el) el.remove();
+  }
+ 
+  function hideQuickReplies() {
+    document.getElementById('quick-replies').style.display = 'none';
+  }
+ 
+  function getMessages() {
+    return document.getElementById('chat-messages');
+  }
+ 
+  function scrollBottom() {
+    const el = getMessages();
+    el.scrollTop = el.scrollHeight;
+  }
+ 
+  async function sendQuick(text) {
+    await send(text);
+  }
+ 
+  async function sendMessage() {
+    const input = document.getElementById('chat-input');
+    const text = input.value.trim();
+    if (!text) return;
+    input.value = '';
+    await send(text);
+  }
+ 
+  async function send(userText) {
+    appendUser(userText);
+    conversationHistory.push({ role: 'user', content: userText });
+ 
+    const typing = showTyping();
+ 
+    try {
+      const response = await fetch(ANTHROPIC_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          model: 'claude-sonnet-4-6',
+          max_tokens: 1000,
+          system: SYSTEM_PROMPT,
+          messages: conversationHistory
+        })
+      });
+ 
+      const data = await response.json();
+      removeTyping();
+ 
+      const reply = data?.content?.[0]?.text || "I'm sorry, I couldn't process that. Please try again.";
+      conversationHistory.push({ role: 'assistant', content: reply });
+      appendBot(reply);
+ 
+    } catch (err) {
+      removeTyping();
+      appendBot("I'm having trouble connecting right now. Please try again in a moment, or contact us directly.");
+      console.error('Kayo chatbot error:', err);
+    }
+  }

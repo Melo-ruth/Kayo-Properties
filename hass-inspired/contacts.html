@@ -43,11 +43,11 @@
 
   <!-- ── HERO ── -->
   <section class="cc-hero">
-    <img class="cc-hero-img" src="assets/contact-hero.jpg" alt="Kayo Properties"
+    <img class="cc-hero-img" src="assets/logo.png" alt="Kayo Properties"
          onerror="this.onerror=null;this.src='https://placehold.co/1600x700/0b1921/c8a96e?text=Contact';">
     <div class="cc-hero-scrim"></div>
     <div class="cc-hero-inner reveal">
-      <p class="cc-eyebrow cc-eyebrow--center">Kayo Properties</p>
+     
       <h1 class="cc-hero-title">Contact <em>Us.</em></h1>
       <p class="cc-hero-sub">We'd love to hear from you — whether you're buying, investing, or just exploring.</p>
     </div>
@@ -95,7 +95,7 @@
         </svg>
       </div>
       <h3 class="cc-card-title">Visit</h3>
-      <span class="cc-card-line">Plot 6B, Kololo Hill Drive</span>
+      <span class="cc-card-line">SMS House, 7th Street, Industrial Area</span>
       <span class="cc-card-line">Kampala, Uganda</span>
     </article>
   </section>
@@ -103,7 +103,7 @@
 
   <!-- ── WORKING HOURS (over image) ── -->
   <section class="cc-hours">
-    <img class="cc-hours-img" src="assets/contact-hours.jpg" alt=""
+    <img class="cc-hours-img" src="assets/logo5 (1).png" alt=""
          onerror="this.onerror=null;this.src='https://placehold.co/1600x600/142733/142733?text=+';">
     <div class="cc-hours-scrim"></div>
     <div class="cc-hours-inner reveal">
@@ -182,14 +182,14 @@
 
     <div class="cc-map-side reveal-right">
       <iframe
-        title="Kayo Properties location"
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63835.0!2d32.5272!3d0.3476!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x177dbb0f9b9b9b9b%3A0x1b2b3b4b5b6b7b8b!2sKololo%2C%20Kampala!5e0!3m2!1sen!2sug!4v1700000000000"
+        title="Kayo Properties — SMS House, 7th Street, Industrial Area, Kampala"
+        src="https://www.google.com/maps?q=SMS%20House%2C%207th%20Street%2C%20Industrial%20Area%2C%20Kampala%2C%20Uganda&output=embed"
         allowfullscreen loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
       <div class="cc-map-card reveal">
         <p class="cc-eyebrow cc-eyebrow--gold">Our Location</p>
         <p class="cc-map-name">Kayo Properties</p>
-        <p class="cc-map-addr">Plot 6B, Kololo Hill Drive<br>P.O Box 00000<br>Kampala, Uganda</p>
-        <a class="cc-map-dir" href="https://maps.google.com" target="_blank" rel="noopener noreferrer">Get Directions →</a>
+        <p class="cc-map-addr">SMS HOUSE, 7TH STREET<br>Industrial Area<br>Kampala, Uganda</p>
+        <a class="cc-map-dir" href="https://www.google.com/maps/search/?api=1&query=SMS%20House%2C%207th%20Street%2C%20Industrial%20Area%2C%20Kampala%2C%20Uganda" target="_blank" rel="noopener noreferrer">Get Directions →</a>
       </div>
     </div>
   </section>
@@ -224,6 +224,42 @@
     </div>
   </section>
 
+  <button id="kayo-fab" onclick="toggleChat()" aria-label="Open chat">
+  <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.37 5.07L2 22l5.09-1.35A9.96 9.96 0 0 0 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm1 14H7v-2h6v2zm4-4H7v-2h10v2zm0-4H7V6h10v2z"/></svg>
+</button>
+ 
+<!-- ── Chat window ── -->
+<div id="kayo-chat" role="dialog" aria-label="Kayo Properties AI Advisor">
+  <div class="chat-header">
+    <div class="chat-avatar">
+      <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+    </div>
+    <div class="chat-header-info">
+      <strong>Kayo Property Advisor</strong>
+      <span>AI · Kampala, Uganda</span>
+    </div>
+    <button class="chat-close" onclick="toggleChat()" aria-label="Close">✕</button>
+  </div>
+ 
+  <div class="chat-messages" id="chat-messages"></div>
+ 
+  <div class="quick-replies" id="quick-replies">
+    <button class="quick-reply" onclick="sendQuick('Available listings')">Available listings</button>
+    <button class="quick-reply" onclick="sendQuick('Buying vs renting')">Buy or rent?</button>
+    <button class="quick-reply" onclick="sendQuick('Schedule a viewing')">Schedule a viewing</button>
+    <button class="quick-reply" onclick="sendQuick('Investment advice')">Investment advice</button>
+  </div>
+ 
+  <div class="chat-input-row">
+    <input id="chat-input" type="text" placeholder="Ask about properties…"
+      onkeydown="if(event.key==='Enter') sendMessage()" />
+    <button class="chat-send" onclick="sendMessage()" aria-label="Send">
+      <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+    </button>
+  </div>
+  <div class="chat-footer">Powered by Kayo Properties AI</div>
+</div>
+
 
   <!-- ── FOOTER ── -->
   <footer class="footer">
@@ -236,7 +272,6 @@
       <a href="ecosystem.html">Ecosystem</a>
       <a href="developments.html">Developments</a>
       <a href="index.html#about">About</a>
-      <a href="#">List Property</a>
       <a href="contacts.html">Contact</a>
     </nav>
     <div class="footer-bottom">

@@ -128,14 +128,14 @@
     </a>
   </div>
   <div class="welcome-img reveal-r">
-    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=900&q=85" alt="Kwetu Residence exterior">
+    <img src="assets/kwetu5.jpg" alt="Kwetu Residence exterior">
   </div>
 </section>
 
 <!-- ════ FEATURE 1 — Nature Inspired ════ -->
 <section class="feature cream">
   <div class="feat-img reveal-l">
-    <img src="https://images.unsplash.com/photo-1600566752355-35792bedcfea?auto=format&fit=crop&w=900&q=85" alt="Open living area">
+    <img src="assets/kwetu1.jpg" alt="Open living area">
   </div>
   <div class="feat-text reveal-r">
     <div class="section-tag">Nature Inspired</div>
@@ -217,7 +217,7 @@
 <!-- ════ FEATURE 4 — Signature Comforts ════ -->
 <section class="feature flip">
   <div class="feat-img reveal-r">
-    <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=900&q=85" alt="Outdoor lounge and pool">
+    <img src="assets/kwetu8.jpg" alt="Outdoor lounge and pool">
   </div>
   <div class="feat-text reveal-l">
     <div class="section-tag">Signature Comforts</div>
@@ -348,7 +348,7 @@
 <!-- ════ ENQUIRY FORM ════ -->
 <section class="enquiry" id="enquiry">
   <div class="enquiry-img">
-    <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=900&q=85" alt="Kwetu Residence interior">
+    <img src="assets/kwetu5.jpg" alt="Kwetu Residence interior">
   </div>
   <div class="enquiry-form-wrap">
     <div class="section-tag reveal">Get In Touch</div>
@@ -394,6 +394,41 @@
     </button>
   </div>
 </section>
+<button id="kayo-fab" onclick="toggleChat()" aria-label="Open chat">
+  <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.37 5.07L2 22l5.09-1.35A9.96 9.96 0 0 0 12 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm1 14H7v-2h6v2zm4-4H7v-2h10v2zm0-4H7V6h10v2z"/></svg>
+</button>
+ 
+<!-- ── Chat window ── -->
+<div id="kayo-chat" role="dialog" aria-label="Kayo Properties AI Advisor">
+  <div class="chat-header">
+    <div class="chat-avatar">
+      <svg viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+    </div>
+    <div class="chat-header-info">
+      <strong>Kayo Property Advisor</strong>
+      <span>AI · Kampala, Uganda</span>
+    </div>
+    <button class="chat-close" onclick="toggleChat()" aria-label="Close">✕</button>
+  </div>
+ 
+  <div class="chat-messages" id="chat-messages"></div>
+ 
+  <div class="quick-replies" id="quick-replies">
+    <button class="quick-reply" onclick="sendQuick('Available listings')">Available listings</button>
+    <button class="quick-reply" onclick="sendQuick('Buying vs renting')">Buy or rent?</button>
+    <button class="quick-reply" onclick="sendQuick('Schedule a viewing')">Schedule a viewing</button>
+    <button class="quick-reply" onclick="sendQuick('Investment advice')">Investment advice</button>
+  </div>
+ 
+  <div class="chat-input-row">
+    <input id="chat-input" type="text" placeholder="Ask about properties…"
+      onkeydown="if(event.key==='Enter') sendMessage()" />
+    <button class="chat-send" onclick="sendMessage()" aria-label="Send">
+      <svg viewBox="0 0 24 24"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+    </button>
+  </div>
+  <div class="chat-footer">Powered by Kayo Properties AI</div>
+</div>
 
 <!-- ════ FOOTER ════ -->
 <footer class="site-footer">
